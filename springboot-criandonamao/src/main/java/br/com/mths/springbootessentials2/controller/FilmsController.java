@@ -5,6 +5,7 @@ import br.com.mths.springbootessentials2.model.Films;
 import br.com.mths.springbootessentials2.service.FilmService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,6 @@ public class FilmsController {
     @GetMapping
     public List<Films> getAll() {
         log.info(dateUtil.dataFormatada(LocalDateTime.now()));
-        return filmService.listAll();
+        return ResponseEntity<>(filmService.listAll());
     }
 }
